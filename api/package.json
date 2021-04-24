@@ -8,14 +8,20 @@
     "@babel/core": "^7.13.16",
     "@babel/preset-env": "^7.13.15",
     "@babel/preset-typescript": "^7.13.0",
+    "@graphql-codegen/cli": "^1.21.4",
+    "@graphql-codegen/typescript": "^1.22.0",
+    "@graphql-codegen/typescript-resolvers": "^1.19.1",
     "@types/aws-lambda": "^8.10.75",
+    "add": "^2.0.6",
     "apollo-server": "^2.23.0",
     "babel-loader": "^8.2.2",
     "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4",
     "webpack": "^5.35.1",
-    "webpack-cli": "^4.6.0"
+    "webpack-cli": "^4.6.0",
+    "yarn": "^1.22.10"
   },
   "dependencies": {
     "apollo-server-core": "^2.23.0",
@@ -24,6 +30,10 @@
   },
   "scripts": {
     "dev": "nodemon ./src/dev.ts -e ts -w ./src --exec ts-node",
-    "build": "webpack"
+    "build": "webpack",
+    "schema:codegen": "graphql-codegen --config codegen.yml",
+    "prettier:check": "prettier -l '**/*.{md,js,ts,json}'",
+    "prettier:fix": "prettier --write '**/*.{md,js,ts,json}'",
+    "test:type": "tsc --noEmit"
   }
 }

@@ -1,0 +1,10 @@
+overwrite: true
+schema: 'src/type-defs.ts'
+documents: null
+generates:
+  src/resolvers/__generated__/types.ts:
+    config:
+      noSchemaStitching: true
+    plugins:
+      - 'typescript'
+      - 'typescript-resolvers'
