@@ -3,3 +3,4 @@ dist
 .vscode
 __generated__
 .DS_Store
+coverage
