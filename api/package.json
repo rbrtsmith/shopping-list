@@ -40,6 +40,7 @@
     "prettier:fix": "prettier --write '**/*.{md,js,ts,json}'",
     "test:type": "tsc --noEmit",
     "test:unit": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "test": "yarn prettier:check && yarn test:type && yarn test:coverage"
   }
 }
