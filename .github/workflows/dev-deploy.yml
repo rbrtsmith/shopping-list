@@ -10,10 +10,12 @@ name: Dev Deploy
 #       tags:
 #         description: 'Test scenario tags'  
 
+# on:
+#   push:
+#     branches-ignore:
+#       - master
 on:
-  push:
-    branches-ignore:
-      - master
+  workflow_dispatch
 
 jobs:
   printInputs:
