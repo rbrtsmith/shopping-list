@@ -1,4 +1,4 @@
-name: CI
+name: Dev Deploy
 
 on:
   workflow_dispatch:
@@ -11,8 +11,8 @@ on:
         description: 'Test scenario tags'  
 
 jobs:
-  print-test:
+  printInputs:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-        echo "TEST"
+    - run: |
+        echo "Test"
