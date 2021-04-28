@@ -29,16 +29,19 @@ jobs:
           node-version: '14.x'
       - run: yarn install
       - run: yarn schema:codegen
-      - name: Upload math result for job 1
+      - run: zip node_modules.zip node_modules
+      - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: build_and_codegen_artifacts
-          path: .
+          path: |
+            .
+            !node_modules/**/*
   build:
     needs: install_and_codegen
     runs-on: ubuntu-latest
     steps:
-      - name: Download math result for job 1
+      - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
           name: build_and_codegen_artifacts
@@ -47,6 +50,7 @@ jobs:
       #   uses: actions/setup-node@v2
       #   with:
       #     node-version: '14.x'
+      - run: unzip node_modules.zip
       - run: yarn build
 
   # build:
