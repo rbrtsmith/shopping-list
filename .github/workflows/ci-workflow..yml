@@ -34,7 +34,6 @@ jobs:
           name: build_and_codegen_artifacts
       - run: unzip node_modules.zip -d node_modules
       - run: ls -al
-      - run: chown node_modules
       - run: yarn build
 
       # jobs:
