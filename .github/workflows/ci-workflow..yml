@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: build_and_codegen_artifacts
-          # path: math-homework.txt
+          path: .
   build:
     needs: install_and_codegen
     runs-on: ubuntu-latest
