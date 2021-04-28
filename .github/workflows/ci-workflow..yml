@@ -16,7 +16,7 @@ jobs:
           node-version: '14.x'
       - run: yarn install
       - run: yarn schema:codegen
-      - run: zip node_modules.zip node_modules
+      - run: zip -r node_modules.zip node_modules
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
