@@ -33,7 +33,8 @@ jobs:
         with:
           name: build_and_codegen_artifacts
       - run: unzip node_modules.zip -d node_modules
-      - run: yarn build
+      - run: ls
+      # - run: yarn build
 
       # jobs:
 #   build-and-test-api:
