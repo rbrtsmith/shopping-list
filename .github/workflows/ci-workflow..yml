@@ -35,7 +35,7 @@ jobs:
 
       - name: Build
         run: |
-          unzip node_modules.zip -d node_modules
+          unzip node_modules.zip
           ls -al
           yarn build
 
