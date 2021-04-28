@@ -33,7 +33,7 @@ jobs:
         with:
           name: build_and_codegen_artifacts
       - run: unzip node_modules.zip -d node_modules
-      - run: ls
+      - run: ls -al
       # - run: yarn build
 
       # jobs:
