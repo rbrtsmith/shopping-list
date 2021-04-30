@@ -38,6 +38,20 @@ jobs:
           unzip node_modules.zip
           ls -al
           yarn build
+  test:
+    needs: install_and_codegen
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build_and_codegen_artifacts
+
+      - name: Test
+        run: |
+          unzip node_modules.zip
+          ls -al
+          yarn test
 
       # jobs:
 
