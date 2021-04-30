@@ -36,7 +36,6 @@ jobs:
       - name: Build
         run: |
           unzip -q node_modules.zip
-          ls -al
           yarn build
   test:
     needs: install_and_codegen
@@ -51,6 +50,7 @@ jobs:
         run: |
           unzip -q node_modules.zip
           ls -al
+          yarn install
           yarn prettier:check
 
       # jobs:
