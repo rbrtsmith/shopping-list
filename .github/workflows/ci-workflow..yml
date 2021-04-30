@@ -35,7 +35,7 @@ jobs:
 
       - name: Build
         run: |
-          unzip node_modules.zip
+          unzip -q node_modules.zip
           ls -al
           yarn build
   test:
@@ -49,7 +49,7 @@ jobs:
 
       - name: Test
         run: |
-          unzip node_modules.zip
+          unzip -q node_modules.zip
           ls -al
           yarn test:coverage
 
