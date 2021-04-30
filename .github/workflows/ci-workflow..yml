@@ -51,7 +51,7 @@ jobs:
         run: |
           unzip -q node_modules.zip
           ls -al
-          yarn test:coverage
+          yarn prettier:check
 
       # jobs:
 
