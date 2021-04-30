@@ -1,3 +1,1 @@
 # Shopping List
-
-.
