@@ -51,7 +51,7 @@ jobs:
         run: |
           unzip node_modules.zip
           ls -al
-          yarn test
+          yarn test:coverage
 
       # jobs:
 
