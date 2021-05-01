@@ -50,7 +50,7 @@ jobs:
         run: |
           unzip -q node_modules.zip
           ls -al
-          yarn install
+          head -310 node_modules/.bin/prettier
           yarn prettier:check
 
       # jobs:
