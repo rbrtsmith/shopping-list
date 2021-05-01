@@ -53,6 +53,7 @@ jobs:
           head -310 node_modules/.bin/prettier
           ls -al node_modules/prettier
           head -100 node_modules/prettier/index.js
+          yarn prettier:check
           
 # yarn prettier:check
       # jobs:
