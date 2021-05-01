@@ -51,7 +51,7 @@ jobs:
           unzip -q node_modules.zip
           ls -al
           head -310 node_modules/.bin/prettier
-          ls -al node/modules_prettier
+          ls -al node_modules/prettier
           head -100 node_modules/prettier/index.js
           
 # yarn prettier:check
