@@ -65,7 +65,8 @@ jobs:
           node-version: '14.x'
         env: 
           TEST_SECRET:  ${{ secrets.TEST_SECRET }}
-      - run: yarn install --frozen-lockfile
+      - run: echo foo
+      # - run: yarn install --frozen-lockfile
       # - run: yarn schema:codegen
       # - run: yarn build
       # - run: yarn test
