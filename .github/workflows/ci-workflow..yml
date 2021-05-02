@@ -71,7 +71,7 @@ jobs:
       # - run: yarn build
       # - run: yarn test
       # - run: echo ${{}}
-      - run: scripts/deploy-dev.sh
+      - run: scripts/deploy-dev.sh ${TEST_SECRET}
 
 # build:
 #   needs: install
