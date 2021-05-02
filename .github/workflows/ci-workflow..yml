@@ -14,7 +14,7 @@ jobs:
   #       uses: actions/setup-node@v2
   #       with:
   #         node-version: '14.x'
-  #     - run: yarn install
+  #     - run: yarn install --frozen-lockfile
   #     - run: yarn schema:codegen
   #     - run: zip -r -q node_modules.zip node_modules
   #     - name: Upload artifacts
@@ -63,11 +63,13 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14.x'
-      - run: yarn install --frozen-lockfile
-      - run: yarn schema:codegen
-      - run: yarn build
-      - run: yarn test
-      - run: scripts/deploy-dev.sh
+        - run echo ${{ TEST_SECRET }}
+      # - run: yarn install --frozen-lockfile
+      # - run: yarn schema:codegen
+      # - run: yarn build
+      # - run: yarn test
+      # - run: echo ${{}}
+      # - run: scripts/deploy-dev.sh
 
 # build:
 #   needs: install
