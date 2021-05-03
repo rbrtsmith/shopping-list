@@ -5,7 +5,7 @@ on:
     branches-ignore:
       - master
 env: 
-  TEST_SECRET:  foo ${{ secrets.TEST_SECRET }} bar
+  TEST_SECRET:  ${{ secrets.TEST_SECRET }}
 jobs:
   # install_and_codegen:
   #   runs-on: ubuntu-latest
@@ -70,7 +70,7 @@ jobs:
       # - run: yarn build
       # - run: yarn test
       # - run: echo ${{}}
-      - run: scripts/deploy-dev.sh ${TEST_SECRET}
+      - run: scripts/deploy-dev.sh foo ${TEST_SECRET} bar
 
 # build:
 #   needs: install
