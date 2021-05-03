@@ -5,8 +5,7 @@ on:
     branches-ignore:
       - master
 env: 
-  TEST_SECRET:  ${{ secrets.TEST_SECRET }}
-  # TEST_SECRET: bar
+  TEST_SECRET:  foo ${{ secrets.TEST_SECRET }} bar
 jobs:
   # install_and_codegen:
   #   runs-on: ubuntu-latest
