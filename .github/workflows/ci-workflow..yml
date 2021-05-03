@@ -1,20 +1,77 @@
-# name: CI
+name: CI
 
-# on:
-#   push:
-#     branches-ignore:
-#       - master
+on:
+  push:
+    branches-ignore:
+      - master
+env: 
+  TEST_SECRET:  ${{ secrets.TEST_SECRET }}
+jobs:
+  # install_and_codegen:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Use Node.js
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '14.x'
+  #     - run: yarn install --frozen-lockfile
+  #     - run: yarn schema:codegen
+  #     - run: zip -r -q node_modules.zip node_modules
+  #     - name: Upload artifacts
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: build_and_codegen_artifacts
+  #         path: |
+  #           .
+  #           !node_modules/**/*
+  # build:
+  #   needs: install_and_codegen
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Download artifacts
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: build_and_codegen_artifacts
 
-# jobs:
-#   build-and-test-api:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#       - name: Use Node.js
-#         uses: actions/setup-node@v2
-#         with:
-#           node-version: '14.x'
-#       - run: yarn install
-#       - run: yarn schema:codegen
-#       - run: yarn build
-#       - run: yarn test
+  #     - name: Build
+  #       run: |
+  #         unzip -q node_modules.zip
+  #         yarn build
+  # test:
+  #   needs: install_and_codegen
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Download artifacts
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: build_and_codegen_artifacts
+
+  #     - name: Test
+  #       run: |
+  #         unzip -q node_modules.zip
+  #         ls -al
+  #         head -310 node_modules/.bin/prettier
+  #         ls -al node_modules/prettier
+  #         head -100 node_modules/prettier/index.js
+  #         yarn prettier:check
+
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      
+      # - run: yarn install --frozen-lockfile
+      # - run: yarn schema:codegen
+      # - run: yarn build
+      # - run: yarn test
+      # - run: echo ${{}}
+      - run: scripts/deploy-dev.sh foo ${TEST_SECRET} bar
+
+# build:
+#   needs: install
+#     - run: yarn build
